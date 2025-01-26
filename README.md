@@ -27,14 +27,14 @@ The aim of this assignment is to write code which will pass **all of the** unit 
 
 Once you have everything installed (see below for detailed instructions), you can start developing. Once you have cloned this repository and opened it in VS Code, open the REPL. This can be done via the command palette (`Ctrl+Shift+P`/`Cmd+Shift+P` or `View->Command Palette`) and type `Start REPL` and select the Julia one. From here, add a package to your default environment, by entering the package manager environment inside the REPL (press `]` and the text should turn blue):
 ```julia
-(@v1.8) pkg> add Revise BenchmarkTools
+(@v1.11) pkg> add Revise BenchmarkTools
 ```
-Once these packages are in your global environment (for `Julia v.1.8`), they can be accessed from any environment. Activate the current environment by using the `activate` command:
+Once these packages are in your global environment (for `Julia v.1.11`), they can be accessed from any environment. Activate the current environment by using the `activate` command:
 ```julia
-(@v1.8) pkg> activate .
+(@v1.11) pkg> activate .
 (Assignment1) pkg>
 ```
-You should see the environment being used change from the global `(@v1.8)` to `(Assignment1)`. Typing `activate` in pkg mode without the `.` will send you back to the local environment.
+You should see the environment being used change from the global `(@v1.11)` to `(Assignment1)`. Typing `activate` in pkg mode without the `.` will send you back to the local environment.
 
 The two packages (`Revise.jl` and `BenchmarkTools.jl`) are really the only packages that should be in a global environment.
 
@@ -154,19 +154,6 @@ To install Julia, I would recommend using [`juliaup`](https://github.com/JuliaLa
 
 If `juliaup` has issues, the next best way to install Julia is through the binary available directly from [`julialang.org`](https://julialang.org/downloads/).
 
-### Installing on a HPC
-
-When installing on the HPC it is best to ask your admins to install the latest versions, but these are updated frequently, and your admins may not wish to keep installing new versions. You can install the binary directly from `julialang` with only user permissions. First of all, go to the [downloads](https://julialang.org/downloads/) and copy the link of the `Generic Linux on ...` link for the architecture for your HPC (most likely it will be `x86`). You should prefer to use the `glibc` 64-bit version, whose link should look something like `https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.3-linux-x86_64.tar.gz`. Replacing this link with the most up to date version, follow the following steps:
-```sh
-wget https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.3-linux-x86_64.tar.gz
-tar -xvf julia-1.8.3-linux-x86_64.tar.gz
-echo 'export PATH="$HOME/julia.1.8.3/bin:$PATH"' >> ~/.bashrc
-```
-restarting your shell (by logging back in or by running `source ~/.bashrc`), you should now have access to Julia:
-```sh
-julia --version
-```
-
 ## Installing Git
 
 Install Git on your machine by following the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -212,7 +199,7 @@ You can write a line and press enter to execute the code. You can press `Ctrl+L`
 
 To install a package in Julia, go to the REPL and press the `]` character, which will switch to the package manager command line interface. In brackets, it will show your currently activate *environment*. Environments are extremely important to keep track of, especially in science, to make sure your code is reproducible. Make sure you activate the environment in the repository folder root, by typing `activate .`. On my Windows machine, I get:
 ```julia
-(@v1.8) pkg> activate .
+(@v1.11) pkg> activate .
   Activating new project at `D:\Development\MPAGS\getting-started-with-julia`
 
 (Assignment1) pkg> 
